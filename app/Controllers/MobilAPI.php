@@ -6,6 +6,6 @@ class MobilAPI extends ResourceController{
     public function index(){
         $model = model(Mobil::class);
         $data = $model->getDataMobil();
-        return $this->response->setStatusCode(200)->setJSON($data);
+        return $this->response->setStatusCode(201)->setJSON($data);
     }
 }
