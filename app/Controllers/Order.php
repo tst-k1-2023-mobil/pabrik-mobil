@@ -7,6 +7,6 @@ class Order extends ResourceController{
     public function create(){
         $model = model(Assembly::class);
         $mobilId = $this->request->getJsonVar('mobilId');
-        return $this->response->setStatusCode(200)->setJSON($model->order($mobilId));
+        return $this->response->setStatusCode(201)->setJSON($model->order($mobilId));
     }
 }
