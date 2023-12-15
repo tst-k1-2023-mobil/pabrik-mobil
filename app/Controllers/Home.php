@@ -4,8 +4,9 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function index(): string
+    public function index()
     {
-        return view('welcome_message');
+        if (session()->get('user') == '1') {return redirect()->to('/admin');}
+        return redirect()->to('/login');
     }
 }
