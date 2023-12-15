@@ -11,3 +11,5 @@ $routes->get('/register', 'Register::index');
 $routes->get('/api/mobil', 'MobilAPI::index');
 $routes->get('/api/queue', 'Queue::index');
 $routes->post('/api/order', 'Order::create');
+$routes->get('/admin', 'Admin::index');
+$routes->post('/admin', 'Admin::index');
