@@ -14,7 +14,9 @@ class Order extends ResourceController{
         date_default_timezone_set("Asia/Jakarta");
 
         $mobilId = $this->request->getJsonVar('mobilId');
-        $jumlah = $this->request->getJsonVar('jumlah');
+        $jumlah = (int) $this->request->getJsonVar('jumlah');
+
+        if (!$mobilId || $jumlah < 1) return $this->response->setStatusCode(400)->setBody('Invalid request params');
 
         $readyStock = $mobil->order($mobilId,$jumlah);
         if ($readyStock < $jumlah) {
