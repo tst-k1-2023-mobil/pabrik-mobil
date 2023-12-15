@@ -13,3 +13,4 @@ $routes->get('/api/queue', 'Queue::index');
 $routes->post('/api/order', 'Order::create');
 $routes->get('/admin', 'Admin::index');
 $routes->post('/admin', 'Admin::index');
+$routes->get('/listmobil', 'ListMobil::index');
