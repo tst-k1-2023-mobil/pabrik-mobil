@@ -12,12 +12,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8084/api/mobil",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/api/mobil",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "8084",
 					"path": [
 						"api",
 						"mobil"
@@ -86,6 +84,58 @@
 					],
 					"cookie": [],
 					"body": "[\n    {\n        \"id\": \"1\",\n        \"nama\": \"Kapibara\",\n        \"jenis\": \"Sedan\",\n        \"spesifikasi\": \"Mobil murah bagus untuk keluarga\",\n        \"stok\": \"100\",\n        \"harga\": \"100000000\",\n        \"waktuProduksi\": \"2\"\n    },\n    {\n        \"id\": \"2\",\n        \"nama\": \"Masbro\",\n        \"jenis\": \"Coupe\",\n        \"spesifikasi\": \"Kapibara tapi lebih sporty\",\n        \"stok\": \"90\",\n        \"harga\": \"110000000\",\n        \"waktuProduksi\": \"3\"\n    },\n    {\n        \"id\": \"3\",\n        \"nama\": \"Calico\",\n        \"jenis\": \"Station wagon\",\n        \"spesifikasi\": \"Mobil tiga baris dengan warna belang tiga\",\n        \"stok\": \"1000\",\n        \"harga\": \"95000000\",\n        \"waktuProduksi\": \"1\"\n    }\n]"
+				},
+				{
+					"name": "Unauthorized",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/mobil",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"mobil"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8084"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Dec 2023 23:05:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, max-age=0, no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "WWW-Authenticate",
+							"value": "Bearer"
+						}
+					],
+					"cookie": [],
+					"body": null
 				}
 			]
 		},
@@ -95,12 +145,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8084/api/queue",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/api/queue",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "8084",
 					"path": [
 						"api",
 						"queue"
@@ -131,44 +179,40 @@
 					"_postman_previewlanguage": "json",
 					"header": [
 						{
-							"key": "Server",
-							"value": "nginx/1.25.2"
+							"key": "Host",
+							"value": "localhost:8084"
 						},
 						{
-							"key": "Content-Type",
-							"value": "application/json; charset=UTF-8"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
+							"key": "Date",
+							"value": "Fri, 15 Dec 2023 22:55:50 GMT"
 						},
 						{
 							"key": "Connection",
-							"value": "keep-alive"
+							"value": "close"
 						},
 						{
 							"key": "X-Powered-By",
-							"value": "PHP/8.3.0"
+							"value": "PHP/8.2.13"
 						},
 						{
 							"key": "Cache-Control",
 							"value": "no-store, max-age=0, no-cache"
 						},
 						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
 							"key": "Debugbar-Time",
-							"value": "1702552684.414602"
+							"value": "1702680950.904294"
 						},
 						{
 							"key": "Debugbar-Link",
-							"value": "http://localhost:8084/index.php?debugbar_time=1702552684.414602"
-						},
-						{
-							"key": "Date",
-							"value": "Thu, 14 Dec 2023 11:18:04 GMT"
+							"value": "http://localhost:8084/?debugbar_time=1702680950.904294"
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"queueLength\": 4\n}"
+					"body": "{\n    \"waitTime\": 10\n}"
 				}
 			]
 		},
@@ -179,15 +223,13 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"mobilId\": 1}"
+					"raw": "{\n    \"mobilId\": \"3\",\n    \"jumlah\": 2\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8084/api/order",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/api/order",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "8084",
 					"path": [
 						"api",
 						"order"
@@ -196,13 +238,13 @@
 			},
 			"response": [
 				{
-					"name": "Success",
+					"name": "Success: Sufficient stock",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"mobilId\": 2}"
+							"raw": "{\n    \"mobilId\": \"3\",\n    \"jumlah\": \"1\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8084/api/order",
@@ -227,7 +269,61 @@
 						},
 						{
 							"key": "Date",
-							"value": "Fri, 15 Dec 2023 06:15:06 GMT"
+							"value": "Fri, 15 Dec 2023 23:04:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, max-age=0, no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"backOrder\": false\n}"
+				},
+				{
+					"name": "Success: Insufficient stock",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobilId\": 1,\n    \"jumlah\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8084/api/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8084"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Dec 2023 22:54:34 GMT"
 						},
 						{
 							"key": "Connection",
@@ -247,17 +343,215 @@
 						},
 						{
 							"key": "Debugbar-Time",
-							"value": "1702620906.058841"
+							"value": "1702680874.043548"
 						},
 						{
 							"key": "Debugbar-Link",
-							"value": "http://localhost:8084/index.php?debugbar_time=1702620906.058841"
+							"value": "http://localhost:8084/?debugbar_time=1702680874.043548"
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": \"85\",\n    \"mobilId\": \"2\",\n    \"status\": \"Produksi\",\n    \"tglProduksi\": \"2023-12-16\",\n    \"tglSelesai\": \"2023-12-18\"\n}"
+					"body": "{\n    \"backOrder\": true,\n    \"waitTime\": 9\n}"
+				},
+				{
+					"name": "Bad Request: Incomplete params",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobilId\": 3\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/order",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8084"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Dec 2023 23:07:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, max-age=0, no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "Invalid request params"
+				},
+				{
+					"name": "Bad Request: Invalid format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobilId\": \"3\",\n    \"jumlah\": \"jj\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/order",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8084"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Dec 2023 23:08:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, max-age=0, no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "Invalid request params"
+				},
+				{
+					"name": "Bad Request: Jumlah nonpositif",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobilId\": \"3\",\n    \"jumlah\": 0\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/order",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8084"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Dec 2023 23:10:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, max-age=0, no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						}
+					],
+					"cookie": [],
+					"body": "Invalid request params"
 				}
 			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apiKey",
+			"value": "1234",
+			"type": "string"
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8084",
+			"type": "string"
 		}
 	]
 }
