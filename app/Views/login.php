@@ -6,7 +6,7 @@
         <img src="/car.png" alt="gambar" class="w-3/4 mx-auto my-auto">
     </div>
     <div class="w-1/2 h-full flex justify-center items-center">
-        <form action="/login" method="post" class="flex flex-col w-3/4 p-10 items-start">
+        <form action="/" method="post" class="flex flex-col w-3/4 p-10 items-start">
             <h1 class="text-4xl font-bold text-center">Login</h1>
             <p class="text-md my-2">Enter your credentials to access your account</p>
             <div class="flex flex-col mt-5 w-full">
@@ -22,7 +22,8 @@
             </div>
             <hr class="border-t mt-5 mb-3 w-full border-gray-400">
             <div class="flex justify-center items-center gap-1 w-full">
-                <?php echo (isset($_GET['invalid'])) ? "<p class=\"text-base text-red-600\">Incorrect credentials. Please try again</p>" : "" ?>
+                <?php echo (isset($_GET['invalidLogin'])) ? "<p class=\"text-base text-red-600\">Incorrect credentials. Please try again</p>" : "";
+                echo (isset($_GET['logout'])) ? "<p class=\"text-base\">Logout successful</p>" : "" ?>
             </div>
         </form>
     </div>
