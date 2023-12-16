@@ -9,6 +9,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/login', 'Login::index');
 $routes->get('/register', 'Register::index');
 $routes->get('/api/mobil', 'MobilAPI::index');
+$routes->get('/api/mobil/(:segment)', 'MobilAPI::index/$1');
 $routes->get('/api/queue', 'Queue::index');
 $routes->post('/api/order', 'Order::create');
 $routes->get('/admin', 'Admin::index');

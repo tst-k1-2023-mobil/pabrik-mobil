@@ -27,7 +27,7 @@
                     <p class="mt-1 truncate text-xs leading-5 text-gray-900"><?= $m['spesifikasi']?></p>
                     <p class="mt-1 text-xs leading-5 text-gray-900"><?= $m['stok']?></p>
                     <p class="mt-1 text-xs leading-5 text-gray-900"><?= $m['waktuProduksi'] ?> hari </p>
-                    <p class="mt-1 text-xs leading-5 text-gray-900"><?= $m['harga']?> </p>
+                    <p class="mt-1 text-xs leading-5 text-gray-900"  onclick= ><?= $m['harga']?> </p>
                 </div>
             </li>
         </ul>
