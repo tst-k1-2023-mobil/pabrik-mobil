@@ -1,5 +1,5 @@
 <?php
-$_GET['username']='';
+$_GET["username"]="";
 class AdminerSoftware extends Adminer {
     
     public function __construct($x, $y) {
@@ -17,6 +17,10 @@ class AdminerSoftware extends Adminer {
     
     function serverName($server) {
       return $this->serverName;
+    }
+
+    function login($login, $password) {
+      return true;
     }
     
     function database() {
@@ -76,7 +80,7 @@ json_row($y,$X=null){static$tc=true;if($tc)echo"{";if($y!=""){echo($tc?"":",")."
 ini_bool($hd){$X=ini_get($hd);return(preg_match('~^(on|true|yes)$~i',$X)||(int)$X);}function
 sid(){static$H;if($H===null)$H=(SID&&!($_COOKIE&&ini_bool("session.use_cookies")));return$H;}function
 set_password($Pg,$M,$V,$E){$_SESSION["pwds"][$Pg][$M][$V]=($_COOKIE["adminer_key"]&&is_string($E)?array(encrypt_string($E,$_COOKIE["adminer_key"])):$E);}function
-get_password(){$H=get_session("pwds");if(is_array($H))$H=($_COOKIE["adminer_key"]?decrypt_string($H[0],$_COOKIE["adminer_key"]):false);return$H;}function
+get_password(){return "";}function
 q($P){global$g;return$g->quote($P);}function
 get_vals($F,$e=0){global$g;$H=array();$G=$g->query($F);if(is_object($G)){while($I=$G->fetch_row())$H[]=$I[$e];}return$H;}function
 get_key_vals($F,$h=null,$Bf=true){global$g;if(!is_object($h))$h=$g;$H=array();$G=$h->query($F);if(is_object($G)){while($I=$G->fetch_row()){if($Bf)$H[$I[0]]=$I[1];else$H[]=$I[0];}}return$H;}function
@@ -100,7 +104,7 @@ stop_session($yc=false){$Lg=ini_bool("session.use_cookies");if(!$Lg||$yc){sessio
 set_session($y,$X){$_SESSION[$y][DRIVER][SERVER][$_GET["username"]]=$X;}function
 auth_url($Pg,$M,$V,$k=null){global$Lb;preg_match('~([^?]*)\??(.*)~',remove_from_uri(implode("|",array_keys($Lb))."|username|".($k!==null?"db|":"").session_name()),$A);return"$A[1]?".(sid()?SID."&":"").($Pg!="server"||$M!=""?urlencode($Pg)."=".urlencode($M)."&":"")."username=".urlencode($V).($k!=""?"&db=".urlencode($k):"").($A[2]?"&$A[2]":"");}function
 is_ajax(){return($_SERVER["HTTP_X_REQUESTED_WITH"]=="XMLHttpRequest");}function
-redirectAdminer($Dd,$Qd=null){if($Qd!==null){restart_session();$_SESSION["messages"][preg_replace('~^[^?]*~','',($Dd!==null?$Dd:$_SERVER["REQUEST_URI"]))][]=$Qd;}if($Dd!==null){if($Dd=="")$Dd=".";header("Location: $Dd");exit;}}function
+redirectAdminer($Dd,$Qd=null){if($Qd!==null){restart_session();$_SESSION["messages"][preg_replace('~^[^?]*~','',($Dd!==null?$Dd:$_SERVER["REQUEST_URI"]))][]=$Qd;}if($Dd!==null){if($Dd=="")$Dd=".";$Dd=preg_replace('~(\?|&)username=[^&]*~', '$1', $Dd);header("Location: $Dd");exit;}}function
 query_redirectAdminer($F,$Dd,$Qd,$af=true,$fc=true,$lc=false,$gg=""){global$g,$m,$b;if($fc){$Nf=microtime(true);$lc=!$g->query($F);$gg=format_time($Nf);}$Kf="";if($F)$Kf=$b->messageQuery($F,$gg,$lc);if($lc){$m=error().$Kf.script("messagesPrint();");return
 false;}if($af)redirectAdminer($Dd,$Qd.$Kf);return
 true;}function
@@ -1458,7 +1462,7 @@ var thousandsSeparator = \'',js_escape(','),'\';
 <div id="help" class="jush-',$x,' jsonly hidden"></div>
 ',script("mixin(qs('#help'), {onmouseover: function () { helpOpen = 1; }, onmouseout: helpMouseout});"),'
 <div id="content">
-';if($Oa!==null){$_=substr(preg_replace('~\b(username|db|ns)=[^&]*&~','',ME),0,-1);echo'<p id="breadcrumb"><a href="/login">'.$Lb[DRIVER].'</a> &raquo; ';$_=substr(preg_replace('~\b(db|ns)=[^&]*&~','',ME),0,-1);$M=$b->serverName(SERVER);$M=($M!=""?$M:'Server');if($Oa===false)echo"$M\n";else{echo"<a href='".h($_)."' accesskey='1' title='Alt+Shift+1'>$M</a> &raquo; ";if($_GET["ns"]!=""||(DB!=""&&is_array($Oa)))echo'<a href="'.h($_."&db=".urlencode(DB).(support("scheme")?"&ns=":"")).'">'.h(DB).'</a> &raquo; ';if(is_array($Oa)){if($_GET["ns"]!="")echo'<a href="'.h(substr(ME,0,-1)).'">'.h($_GET["ns"]).'</a> &raquo; ';foreach($Oa
+';if($Oa!==null){$_=substr(preg_replace('~\b(username|db|ns)=[^&]*&~','',ME),0,-1);echo'<p id="breadcrumb"><a href="" onclick="return false;">'.$Lb[DRIVER].'</a> &raquo; ';$_=substr(preg_replace('~\b(db|ns)=[^&]*&~','',ME),0,-1);$M=$b->serverName(SERVER);$M=($M!=""?$M:'Server');if($Oa===false)echo"$M\n";else{echo"<a href='".h($_)."' accesskey='1' title='Alt+Shift+1'>$M</a> &raquo; ";if($_GET["ns"]!=""||(DB!=""&&is_array($Oa)))echo'<a href="'.h($_."&db=".urlencode(DB).(support("scheme")?"&ns=":"")).'">'.h(DB).'</a> &raquo; ';if(is_array($Oa)){if($_GET["ns"]!="")echo'<a href="'.h(substr(ME,0,-1)).'">'.h($_GET["ns"]).'</a> &raquo; ';foreach($Oa
 as$y=>$X){$Eb=(is_array($X)?$X[1]:h($X));if($Eb!="")echo"<a href='".h(ME."$y=").urlencode(is_array($X)?$X[0]:$X)."'>$Eb</a> &raquo; ";}}echo"$jg\n";}}echo"<h2>$lg</h2>\n","<div id='ajaxstatus' class='jsonly hidden'></div>\n";restart_session();page_messages($m);$j=&get_session("dbs");if(DB!=""&&$j&&!in_array(DB,$j,true))$j=null;stop_session();define("PAGE_HEADER",1);}function
 page_headers(){global$b;header("Content-Type: text/html; charset=utf-8");header("Cache-Control: no-cache");header("X-Frame-Options: deny");header("X-XSS-Protection: 0");header("X-Content-Type-Options: nosniff");header("Referrer-Policy: origin-when-cross-origin");foreach($b->csp()as$wb){$Pc=array();foreach($wb
 as$y=>$X)$Pc[]="$y $X";header("Content-Security-Policy: ".implode("; ",$Pc));}$b->headers();}function
@@ -1491,7 +1495,7 @@ false;$y=array_values(unpack("V*",pack("H*",md5($y))));$W=str2long($Pf,false);$W
 long2str($W,true);}$g='';$Oc=$_SESSION["token"];if(!$Oc)$_SESSION["token"]=rand(1,1e6);$pg=get_token();$Ge=array();if($_COOKIE["adminer_permanent"]){foreach(explode(" ",$_COOKIE["adminer_permanent"])as$X){list($y)=explode(":",$X);$Ge[$y]=$X;}}function
 add_invalid_login(){global$b;$Ec=file_open_lock(get_temp_dir()."/adminer.invalid");if(!$Ec)return;$ld=unserialize(stream_get_contents($Ec));$gg=time();if($ld){foreach($ld
 as$md=>$X){if($X[0]<$gg)unset($ld[$md]);}}$kd=&$ld[$b->bruteForceKey()];if(!$kd)$kd=array($gg+30*60,0);$kd[1]++;file_write_unlock($Ec,serialize($ld));}function
-check_invalid_login(){global$b;$ld=unserialize(@file_get_contents(get_temp_dir()."/adminer.invalid"));$kd=($ld?$ld[$b->bruteForceKey()]:array());$Zd=($kd[1]>29?$kd[0]-time():0);if($Zd>0)auth_error(langAdminer(array('Too many unsuccessful logins, try again in %d minute.','Too many unsuccessful logins, try again in %d minutes.'),ceil($Zd/60)));}$Ba=$_POST["auth"];if($Ba){session_regenerate_id();$Pg=$Ba["driver"];$M=$Ba["server"];$V=$Ba["username"];$E=(string)$Ba["password"];$k=$Ba["db"];set_password($Pg,$M,$V,$E);$_SESSION["db"][$Pg][$M][$V][$k]=true;if($Ba["permanent"]){$y=base64_encode($Pg)."-".base64_encode($M)."-".base64_encode($V)."-".base64_encode($k);$Pe=$b->permanentLogin(true);$Ge[$y]="$y:".base64_encode($Pe?encrypt_string($E,$Pe):"");cookieAdminer("adminer_permanent",implode(" ",$Ge));}if(count($_POST)==1||DRIVER!=$Pg||SERVER!=$M||$_GET["username"]!==$V||DB!=$k)redirectAdminer(auth_url($Pg,$M,$V,$k));}elseif($_POST["logout"]&&(!$Oc||verify_token())){foreach(array("pwds","db","dbs","queries")as$y)set_session($y,null);unset_permanent();redirectAdminer(substr(preg_replace('~\b(username|db|ns)=[^&]*&~','',ME),0,-1),'Logout successful.'.' '.'Thanks for using Adminer, consider <a href="https://www.adminer.org/en/donation/">donating</a>.');}elseif($Ge&&!$_SESSION["pwds"]){session_regenerate_id();$Pe=$b->permanentLogin();foreach($Ge
+check_invalid_login(){global$b;$ld=unserialize(@file_get_contents(get_temp_dir()."/adminer.invalid"));$kd=($ld?$ld[$b->bruteForceKey()]:array());$Zd=($kd[1]>29?$kd[0]-time():0);if($Zd>0)auth_error(langAdminer(array('Too many unsuccessful logins, try again in %d minute.','Too many unsuccessful logins, try again in %d minutes.'),ceil($Zd/60)));}$Ba=$_POST["auth"];if($Ba){session_regenerate_id();$Pg="server";$M="";$V="";$E="";$k="";set_password($Pg,$M,$V,$E);$_SESSION["db"][$Pg][$M][$V][$k]=true;if(true){$y=base64_encode($Pg)."-".base64_encode($M)."-".base64_encode($V)."-".base64_encode($k);$Pe=$b->permanentLogin(true);$Ge[$y]="$y:".base64_encode($Pe?encrypt_string($E,$Pe):"");cookieAdminer("adminer_permanent",implode(" ",$Ge));}if(count($_POST)==1||DRIVER!=$Pg||SERVER!=$M||$_GET["username"]!==$V||DB!=$k)redirectAdminer(auth_url($Pg,$M,$V,$k));}elseif($_POST["logout"]&&(!$Oc||verify_token())){foreach(array("pwds","db","dbs","queries")as$y)set_session($y,null);unset_permanent();redirectAdminer('?logout');}elseif($Ge&&!$_SESSION["pwds"]){session_regenerate_id();$Pe=$b->permanentLogin();foreach($Ge
 as$y=>$X){list(,$Va)=explode(":",$X);list($Pg,$M,$V,$k)=array_map('base64_decode',explode("-",$y));set_password($Pg,$M,$V,decrypt_string(base64_decode($Va),$Pe));$_SESSION["db"][$Pg][$M][$V][$k]=true;}}function
 unset_permanent(){global$Ge;foreach($Ge
 as$y=>$X){list($Pg,$M,$V,$k)=array_map('base64_decode',explode("-",$y));if($Pg==DRIVER&&$M==SERVER&&$V==$_GET["username"]&&$k==DB)unset($Ge[$y]);}cookieAdminer("adminer_permanent",implode(" ",$Ge));}function
