@@ -7,18 +7,159 @@
 	},
 	"item": [
 		{
-			"name": "Mobil API Pabrik",
+			"name": "Mobil API Pabrik (Get all)",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/mobil",
+					"raw": "{{baseUrl}}/api/mobil/",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
-						"mobil"
+						"mobil",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/api/mobil",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"mobil"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.25.2"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, max-age=0, no-cache"
+						},
+						{
+							"key": "Debugbar-Time",
+							"value": "1702543041.156372"
+						},
+						{
+							"key": "Debugbar-Link",
+							"value": "http://localhost/pabrik/index.php?debugbar_time=1702543041.156372"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 14 Dec 2023 08:37:21 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"1\",\n        \"nama\": \"Kapibara\",\n        \"jenis\": \"Sedan\",\n        \"spesifikasi\": \"Mobil murah bagus untuk keluarga\",\n        \"stok\": \"100\",\n        \"harga\": \"100000000\",\n        \"waktuProduksi\": \"2\"\n    },\n    {\n        \"id\": \"2\",\n        \"nama\": \"Masbro\",\n        \"jenis\": \"Coupe\",\n        \"spesifikasi\": \"Kapibara tapi lebih sporty\",\n        \"stok\": \"90\",\n        \"harga\": \"110000000\",\n        \"waktuProduksi\": \"3\"\n    },\n    {\n        \"id\": \"3\",\n        \"nama\": \"Calico\",\n        \"jenis\": \"Station wagon\",\n        \"spesifikasi\": \"Mobil tiga baris dengan warna belang tiga\",\n        \"stok\": \"1000\",\n        \"harga\": \"95000000\",\n        \"waktuProduksi\": \"1\"\n    }\n]"
+				},
+				{
+					"name": "Unauthorized",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/mobil",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"mobil"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8084"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Dec 2023 23:05:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.13"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, max-age=0, no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "WWW-Authenticate",
+							"value": "Bearer"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Mobil API Pabrik (Get one)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/mobil/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"mobil",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
 					]
 				}
 			},

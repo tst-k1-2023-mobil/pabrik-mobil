@@ -5,8 +5,8 @@ class Mobil extends Model{
     protected $table = 'mobil';
     protected $allowedFields = ['stok'];
 
-    public function getDataMobil(){
-        return $this->findAll();
+    public function getDataMobil($id = null){
+        return ($id) ? $this->find($id) : $this->findAll();
     }
     public function order($mobilId, $qty) {
 
