@@ -6,7 +6,7 @@ use App\Models\Assembly;
 
 class Order extends ResourceController{
     public function create(){
-        if (trim($this->request->header('Authorization')) !== trim("Authorization: Bearer " . getenv('api.key')))
+        if (trim($this->request->header('Authorization')) !== trim("Authorization: Bearer " . getenv('api_key')))
             return $this->response->setStatusCode(401)->setHeader('WWW-Authenticate','Bearer');
 
         $mobil = model(Mobil::class);

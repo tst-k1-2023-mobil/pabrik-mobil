@@ -12,7 +12,7 @@ class AdminerSoftware extends Adminer {
     }
     
     function credentials() {
-      return array(getenv('database.default.hostname'), getenv('database.default.username'), getenv('database.default.password'));
+      return array(getenv('database_default_hostname'), getenv('database_default_username'), getenv('database_default_password'));
     }
     
     function serverName($server) {
@@ -24,7 +24,7 @@ class AdminerSoftware extends Adminer {
     }
     
     function database() {
-      return getenv('database.default.database');
+      return getenv('database_default_database');
     }
     
 }

@@ -15,7 +15,7 @@ class Admin extends BaseController
         }
 
         if (isset($_POST['email'])) {
-            if ($_POST['email'] == getenv('admin.email') && $_POST['password'] == getenv('admin.password')) {
+            if ($_POST['email'] == getenv('admin_email') && $_POST['password'] == getenv('admin_password')) {
                 session()->start();
                 session()->set('token',rand(1, 1e6));
                 session()->set('user','1');
