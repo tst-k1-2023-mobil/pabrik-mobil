@@ -12,26 +12,26 @@ CI_ENVIRONMENT = production
 # APP
 #--------------------------------------------------------------------
 
-app.baseURL = 'http://localhost:8084'
 app_baseURL = 'http://localhost:8084'
-app.indexPage = ''
+app_baseURL = 'http://localhost:8084'
+app_indexPage = ''
 
 #--------------------------------------------------------------------
 # DATABASE
 #--------------------------------------------------------------------
 
-database.default.hostname = localhost
-database.default.database = pabrik
-database.default.username = root
-database.default.password = ***REMOVED***
-database.default.DBDriver = MySQLi
-database.default.DBPrefix =
-database.default.port = 3306
+database_default_hostname = localhost
+database_default_database = pabrik
+database_default_username = root
+database_default_password = ***REMOVED***
+database_default_DBDriver = MySQLi
+database_default_DBPrefix =
+database_default_port = 3306
 
 #--------------------------------------------------------------------
 # ADMIN ACCOUNT & API KEY
 #--------------------------------------------------------------------
 
-admin.email=admin@pabrik.com
-admin.password=12345678
-api.key=1234
+admin_email=admin@pabrik.com
+admin_password=12345678
+api_key=1234

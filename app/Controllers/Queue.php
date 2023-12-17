@@ -5,7 +5,7 @@ use App\Models\Assembly;
 
 class Queue extends ResourceController{
     public function index(){
-        if (trim($this->request->header('Authorization')) !== trim("Authorization: Bearer " . getenv('api.key')))
+        if (trim($this->request->header('Authorization')) !== trim("Authorization: Bearer " . getenv('api_key')))
             return $this->response->setStatusCode(401)->setHeader('WWW-Authenticate','Bearer');
         $model = model(Assembly::class);
         date_default_timezone_set("Asia/Jakarta");
