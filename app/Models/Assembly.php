@@ -15,4 +15,7 @@ use CodeIgniter\Model; class Assembly extends Model{
 
         return $this->find($id);
     }
+    public function getTanggalKirim($id){
+        return $this->where(['id' => $id])->first();
+    }
 }

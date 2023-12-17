@@ -23,7 +23,8 @@ class Order extends ResourceController{
             $backOrder = $assembly->order($mobilId,$jumlah-$readyStock);
             $returnObject = [
                 'backOrder' => true,
-                'waitTime' => max((int) date_diff(date_create('yesterday'),date_create($backOrder['tglSelesai']))->format("%r%d"),0)
+                'waitTime' => max((int) date_diff(date_create('yesterday'),date_create($backOrder['tglSelesai']))->format("%r%d"),0),
+                'tanggalKirim' => $backOrder['tglSelesai']
             ];
         } else {
             $returnObject = [
