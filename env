@@ -13,6 +13,7 @@ CI_ENVIRONMENT = production
 #--------------------------------------------------------------------
 
 app_baseURL = 'http://localhost:8084'
+app_port = 8084 # For docker
 app_indexPage = ''
 
 #--------------------------------------------------------------------
@@ -21,7 +22,7 @@ app_indexPage = ''
 
 database_default_hostname = localhost
 database_default_database = pabrik
-database_default_username = root
+database_default_username = root # DO NOT USE ROOT WHEN USING DOCKER
 database_default_password = ***REMOVED***
 database_default_DBDriver = MySQLi
 database_default_DBPrefix =
